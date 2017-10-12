@@ -92,18 +92,18 @@ public class Aplicacion extends javax.swing.JFrame {
 
     private void botoncitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoncitoActionPerformed
         // TODO add your handling code here:
-        Usuario jc=new Usuario();
+        Usuario da=new Usuario();
        // jc.peso=-70;
       //  jc.altura=1.68f;
       //Primero pedimos el valor  del texto al primer campo
          float peso= Float.parseFloat(textoPeso.getText());
-         jc.setPeso(peso);
+         da.setPeso(peso);
         //hacemos lo mismo para la altura
         float altura=Float.parseFloat(textoAltura.getText());
-         jc.setAltura(altura); 
+         da.setAltura(altura); 
          
         Imc modelo=new Imc();
-        modelo.u=jc;
+        modelo.u=da;
                 
         etiqueta.setText(modelo.calcular());
         
