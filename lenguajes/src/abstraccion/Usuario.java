@@ -7,6 +7,7 @@ package abstraccion;
 
 
 public class Usuario {
+        
  private float peso;
  private float altura;  
 
