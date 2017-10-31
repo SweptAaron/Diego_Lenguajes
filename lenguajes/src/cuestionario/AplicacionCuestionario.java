@@ -7,6 +7,7 @@ package cuestionario;
 
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
 /**
@@ -36,6 +37,7 @@ public class AplicacionCuestionario extends javax.swing.JFrame {
         Titulo = new javax.swing.JLabel();
         etiquetaTitulo = new javax.swing.JLabel();
         panelOpciones = new javax.swing.JPanel();
+        botonRespuesta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +54,8 @@ public class AplicacionCuestionario extends javax.swing.JFrame {
         panelOpciones.setBackground(new java.awt.Color(255, 255, 255));
         panelOpciones.setLayout(new java.awt.GridLayout(4, 1));
 
+        botonRespuesta.setText("Checar Respuesta");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -59,14 +63,16 @@ public class AplicacionCuestionario extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
+                        .addGap(86, 86, 86)
                         .addComponent(Titulo))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
+                        .addGap(119, 119, 119)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(etiquetaTitulo)
-                            .addComponent(panelOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(161, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(botonRespuesta)
+                                .addComponent(panelOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,7 +83,9 @@ public class AplicacionCuestionario extends javax.swing.JFrame {
                 .addComponent(etiquetaTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(botonRespuesta)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,42 +139,42 @@ public class AplicacionCuestionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
+    private javax.swing.JButton botonRespuesta;
     private javax.swing.JLabel etiquetaTitulo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panelOpciones;
     // End of variables declaration//GEN-END:variables
 
     private void nuestroMetodo() {
-        //Creamos los radioButtons 
-        JRadioButton r1=new JRadioButton("Opcion 1 ");
-        JRadioButton r2=new JRadioButton("Opcion 2 ");
-        JRadioButton r3=new JRadioButton("Opcion 3 ");
-        JRadioButton r4=new JRadioButton("Opcion 4 ");
-        
-        //Creamos un agrupador de botones
+
         ButtonGroup grupo = new ButtonGroup();
-        grupo.add(r1);
-        grupo.add(r2);
-        grupo.add(r3);
-        grupo.add(r4);
-        
-        //Los agregamos a los paneles
-        panelOpciones.add(r1);
-        panelOpciones.add(r2);
-        panelOpciones.add(r3);
-        panelOpciones.add(r4); 
-        
-        //Vamos a indicarle que ponga la primera pregunta y
-        //sus respectivas opciones
         
         ArrayList<Pregunta> preguntas = new GenerarCuestionario().generar();
-        //Del ArrayList que se llama preguntas obtenemos el titulo de la primera
+        
+        //ArrayList<JRadioButton> radios = new ArrayList<>();
+        JRadioButton [] radios2 = new JRadioButton[preguntas.get(0).getOpcion().size()];
         
         etiquetaTitulo.setText(preguntas.get(0).getTitulo());
-        r1.setText(preguntas.get(0).getOpcion().get(0).getTitulo());
-        r2.setText(preguntas.get(0).getOpcion().get(1).getTitulo());
-        r3.setText(preguntas.get(0).getOpcion().get(2).getTitulo());
-        r4.setText(preguntas.get(0).getOpcion().get(3).getTitulo());
+        int indice =0;
+        for(JRadioButton radio : radios2){
+            grupo.add(radio);
+            radio.setText(preguntas.get(0).getOpcion().get(indice).getTitulo());
+            radio indice = new JRadiobutton();
+            panelOpciones.add(radio);
+            indice++;
+        }
+        
+        //Vamos a buscar la opcion correcta
+        
+        
+        
+        //Aqui vamos a programar el evento del boton
+        //con programacion funcional
+        
+        botonRespuesta.addActionListener(evento->{  //el tipo de retorno es una funcion no una variable
+           
+            JOptionPane.showConfirmDialog(this, "probando esto");
+        });
         
     }
 }
