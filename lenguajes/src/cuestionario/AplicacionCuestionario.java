@@ -158,8 +158,8 @@ public class AplicacionCuestionario extends javax.swing.JFrame {
         int indice =0;
         for(JRadioButton radio : radios2){
             grupo.add(radio);
+            radio = new JRadioButton();
             radio.setText(preguntas.get(0).getOpcion().get(indice).getTitulo());
-            radio indice = new JRadiobutton();
             panelOpciones.add(radio);
             indice++;
         }

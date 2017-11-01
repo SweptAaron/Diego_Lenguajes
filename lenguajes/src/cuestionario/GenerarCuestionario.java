@@ -12,14 +12,17 @@ import java.util.*;
  */
 public class GenerarCuestionario {
     public ArrayList<Pregunta> generar(){
+        
         //primero generamos el arreglo que contendra las preguntas
         ArrayList<Pregunta> preguntas=new ArrayList<Pregunta>();
+        
         //primero generamos cada opcion de la priemra pregunta
         Opcion op11 = new Opcion("Moscu", false);
         Opcion op21 = new Opcion("Kiev", false);
         Opcion op31 = new Opcion("Helsinki", true);
         Opcion op41 = new Opcion("Turim", false);
-        //generar la pregu nta
+                
+        //generar la pregunta
         ArrayList<Opcion> opciones1= new ArrayList <>();
         opciones1.add(op11);
         opciones1.add(op21);
