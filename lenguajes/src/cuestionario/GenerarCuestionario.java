@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package cuestionario;
 import java.util.*;
 
@@ -28,6 +24,7 @@ public class GenerarCuestionario {
         opciones1.add(op21);
         opciones1.add(op31);
         opciones1.add(op41);
+        //objeto pregunta
         Pregunta p1=new Pregunta ("Capital de Finlandia", opciones1);
         preguntas.add(p1);
         
