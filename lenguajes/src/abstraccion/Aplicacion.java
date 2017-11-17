@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package abstraccion;
 
 /**
  *
- * @author T-102
+ * @author Diego Aaron
  */
 public class Aplicacion extends javax.swing.JFrame {
 
@@ -67,7 +63,7 @@ public class Aplicacion extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(textoPeso)
                                 .addComponent(textoAltura, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)))))
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +80,7 @@ public class Aplicacion extends javax.swing.JFrame {
                 .addComponent(botoncito)
                 .addGap(33, 33, 33)
                 .addComponent(etiqueta)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
@@ -93,20 +89,25 @@ public class Aplicacion extends javax.swing.JFrame {
     private void botoncitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoncitoActionPerformed
         // TODO add your handling code here:
         Usuario da=new Usuario();
-       // jc.peso=-70;
-      //  jc.altura=1.68f;
+    
+        try{
       //Primero pedimos el valor  del texto al primer campo
          float peso= Float.parseFloat(textoPeso.getText());
+         Validaciones.validarNumeroNoNegativo(peso);
          da.setPeso(peso);
+         
         //hacemos lo mismo para la altura
         float altura=Float.parseFloat(textoAltura.getText());
-         da.setAltura(altura); 
+        Validaciones.validarNumeroNoNegativo(altura);
+        da.setAltura(altura); 
          
         Imc modelo=new Imc();
         modelo.u=da;
                 
         etiqueta.setText(modelo.calcular());
-        
+        }catch(NumeroNegativoException e){
+            etiqueta.setText(e.getMessage());
+        }
         
     }//GEN-LAST:event_botoncitoActionPerformed
 
